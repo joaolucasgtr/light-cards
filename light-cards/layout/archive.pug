@@ -1,0 +1,53 @@
+extends includes/layout
+
+block content
+  - let categoriesList = list_categories({ show_count: true, class: 'mr-2 ' })
+  - let tagsList = list_tags({ show_count: true, class: 'mr-2 ' })
+  - let archivesList = list_archives({ show_count: true, class: 'mr-2 ' })
+
+  article
+    if !is_year()
+
+      h2= __('archives')
+        span :
+      p 
+
+        if theme.atom
+          p The feed is available via&nbsp;
+            a(href=theme.atom) atom
+            span .
+          br
+
+        .card-body.bg-white.shadow-sm.mb-4
+          h4= __('categories')
+          if categoriesList
+            != categoriesList
+          else
+            p None.
+
+        .card-body.bg-white.shadow-sm.mb-4
+          h4= __('tags')
+          if tagsList
+            != tagsList
+          else
+            p None.
+
+        .card-body.bg-white.shadow-sm.mb-4
+          h4= __('archives')
+          if archivesList
+            != archivesList
+          else
+            p None.
+
+    else
+
+      .card-body.bg-white.shadow-sm.mb-4
+        h2= page.month + '/' + page.year
+        ul
+          - page.posts.each(article => {
+            li    
+              a(href=url_for(article.path)).mr-2= article.title
+              time(datetime=date_xml(article.date))= date(article.date)
+          - })
+
+        include includes/pagination

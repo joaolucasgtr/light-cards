@@ -1,0 +1,71 @@
+aside
+
+  section.text-center.p-4.shadow.mb-4.bg-white.social-card
+    a(href=url_for('/about'))
+      img.social-avatar.mt-5.mb-3.rounded-circle(src=gravatar(theme.Gravatar, { s: 160 }))
+    h4= theme.name
+    p.text-justify.mt-3= theme.description
+    hr
+    p Find me:
+    .row
+      .col-12
+        if theme.email
+          a(href=`mailto:${theme.email}`, target="_blank", title="email").btn.btn-light.rounded-circle
+            i.fa.fa-lg.fa-envelope.text-primary
+
+        if theme.github
+          a(href=theme.github, target="_blank", title="github").btn.btn-light.rounded-circle.ml-2
+            i.fa.fa-lg.fa-github.text-primary
+
+        if theme.gitlab
+          a(href=theme.gitlab, target="_blank", title="gitlab").btn.btn-light.rounded-circle.ml-2
+            i.fa.fa-lg.fa-gitlab.text-primary
+
+        if theme.linkedin
+          a(href=theme.linkedin, target="_blank", title="linkedin").btn.btn-light.rounded-circle.ml-2
+            i.fa.fa-lg.fa-linkedin.text-primary
+
+        if theme.twitter
+          a(href=theme.twitter, target="_blank", title="twitter").btn.btn-light.rounded-circle.ml-2
+            i.fa.fa-lg.fa-twitter.text-primary
+
+        if theme.facebook
+          a(href=theme.facebook, target="_blank", title="facebook").btn.btn-light.rounded-circle.ml-2
+            i.fa.fa-lg.fa-facebook.text-primary
+
+        if theme.youtube
+          a(href=theme.youtube, target="_blank", title="youtube").btn.btn-light.rounded-circle.ml-2
+            i.fa.fa-lg.fa-youtube.text-primary
+
+
+  if is_post()
+    .bg-white.shadow.mb-4.p-4
+      h4= __('recent_posts')
+
+      != list_posts({ order:-1, class: 'circle-list '})
+
+    if page.categories
+      .bg-white.shadow.mb-4.p-4.text-center
+        h4= __('categories')
+
+        != list_categories(page.categories, { show_count: false, class: 'circle-list ', style: ''})
+
+    if page.tags
+      .bg-white.shadow.mb-4.p-4.text-center
+        h4= __('tags')
+
+        != list_tags(page.tags, { show_count: false, class: 'circle-list ', style: ''})
+
+  else
+
+    if site.categories
+      .bg-white.shadow.mb-4.p-4.text-center
+        h4= __('categories')
+
+        != list_categories(site.categories, { show_count: false, class: 'circle-list ', style: ''})
+
+    if site.tags
+      .bg-white.shadow.mb-4.p-4.text-center
+        h4= __('tags')
+
+        != list_tags(site.tags, { show_count: false, class: 'circle-list ', style: ''})

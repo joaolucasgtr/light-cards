@@ -1,0 +1,12 @@
+br
+footer.mt-4.py-4.text-white.bg-dark
+  .container
+    .col-12.text-center
+      a(href='https://hexo.io/') Powered by Hexo
+      span.ml-2 | Copyright ©
+        - let year = new Date().getFullYear()
+        span.ml-1=theme.copyright.name
+        span.ml-1=year
+
+if config.search.path
+  include search

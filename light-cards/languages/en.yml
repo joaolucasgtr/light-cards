@@ -1,0 +1,17 @@
+home: Home
+about: About
+archives: Archives
+categories: Categories
+tags: Tags
+search: Search
+next: Next
+previous: Previous
+
+updated_at: Updated at
+recent_posts: Recent posts
+last_posts: Last posts
+other_posts: Other posts
+leave_comment: Leave a comment
+
+category_filtered: Posts from category
+tag_filtered: Posts from tag

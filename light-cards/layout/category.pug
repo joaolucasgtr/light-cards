@@ -1,0 +1,15 @@
+extends includes/layout.pug
+
+block content
+  #category
+    h2= __('category_filtered')
+      span.mr-2 :
+      i= page.category
+
+    .card-body.bg-white.shadow-sm.mb-3
+      ul
+        - page.posts.each(article => {
+          li
+            a(href=url_for(article.path)).mr-2= article.title
+            time(datetime=date_xml(article.date))= date(article.date)
+        - })

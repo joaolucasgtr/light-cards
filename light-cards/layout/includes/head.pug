@@ -1,0 +1,26 @@
+head
+  meta(charset="UTF-8")
+  meta(name="viewport", content="width=device-width, initial-scale=1.0")
+  meta(http-equiv="X-UA-Compatible", content="ie=edge")
+  meta(name="description", content=config.description)
+  meta(name="author", content=config.author)
+  meta(name="keywords", content=config.keywords)
+
+  - let pageTitle = page.title || config.subtitle || ''
+  - if (is_home()) pageTitle = 'Home'
+  - if (is_archive()) pageTitle = 'Archives'
+  - if (is_tag()) pageTitle = 'Tag: ' + page.tag
+  - if (is_category()) pageTitle = 'Category: ' + page.category
+  - if (is_month()) pageTitle += ': ' + page.month + '/' + page.year
+  - if (is_year()) pageTitle += ': ' + page.year
+  - pageTitle = ` ${pageTitle} | ${config.title} `
+  title= pageTitle  
+  
+  link(rel="stylesheet", href=url_for('/css/vs2015.css'))
+  link(rel='dns-prefetch', href='https://fonts.googleapis.com/')
+    
+  link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css')
+  link(rel='stylesheet', href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css")
+  link(rel='stylesheet', href=url_for('/css/style.css'), type='text/css', media='all')
+  
+  script(src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js")  

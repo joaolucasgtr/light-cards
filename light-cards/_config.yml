@@ -1,0 +1,34 @@
+# Metas
+name: 'Light Cards'
+description: A simple hexo blog template, with a card-based layout
+
+# Main menu navigation
+menu:
+  home: /
+  archives: /archives
+  about: /about  
+RSS: /atom.xml
+
+# Social Card
+Gravatar: http://www.gravatar.com/avatar
+email: my-email@email.com
+github: https://github.com/joaolucasgtr/light-cards
+gitlab: 
+linkedin: 
+youtube: 
+twitter:
+facebook: 
+
+# Comment
+disqus_enabled: false # or true
+disqus_shortname: #my disqus shortname
+
+# Analytics
+google_analytics:
+google_adsense: 
+
+# Copyright Information
+copyright:
+  since: 2019
+  name: John Doe
+  

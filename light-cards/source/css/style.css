@@ -1,0 +1,43 @@
+pre {
+  color: inherit !important;
+  margin-bottom: 0 !important;
+}
+
+img {
+  max-width: 100%;
+}
+
+blockquote {
+  font-style: italic;
+  border-left: 4px solid grey;
+  padding: 1em;
+  background-color: #f8f8f8;
+  color: #6c757d;
+}
+
+blockquote p {
+  margin-bottom: 0;
+}
+
+.blog-post-body h2 {
+  margin-top: 1em;
+}
+
+.bg-light-gray {
+  background-color: #f1f1f1;
+}
+
+.circle-list {
+  list-style-type: circle;
+}
+
+.social-card {
+  background: url('/images/social-background.png');
+  background-size: 100% 30%;
+  background-repeat: no-repeat;
+}
+
+.social-avatar {
+  border: 3px solid white;
+  width: 140px;
+}

@@ -1,0 +1,39 @@
+extends includes/layout.pug
+
+block content
+  article
+    .card-body.bg-white.shadow-sm
+      header
+        h2= page.title
+        .mb-3
+          span.text-muted= `${full_date(page.date, 'll')} / ${readingTime(page.content)}`
+          if page.updated && full_date(page.updated, config.date_format) != full_date(page.date, config.date_format)
+            span.text-muted.float-right
+              i= `${__('updated_at')}: ${full_date(page.updated, config.date_format)}`
+      .blog-post-body
+        != page.content
+
+      hr
+
+      h4= __('other_posts')
+        span.mr-2 :
+      .row.mb-5
+        .col-6
+          if page.prev
+            p= __('previous')
+            a(href=url_for(page.prev.path))
+              i.fa.fa-chevron-left.mr-2
+              span= page.prev.title
+        .col-6.text-right
+          if page.next
+            p= __('next')
+            a(href=url_for(page.next.path))
+              span= page.next.title
+              i.fa.fa-chevron-right.ml-2
+
+      hr
+
+      if theme.disqus_enabled
+        h4= __('leave_comment')
+          span.mr-2 :
+        include includes/disqus

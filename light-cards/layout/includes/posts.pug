@@ -1,0 +1,31 @@
+each post in page.posts.data
+
+  .bg-white.shadow.mb-4
+    .row.p-3
+      .col-3.text-center
+        - let firstPhoto = post.thumb || 'thumb_default.png'
+        a(href=url_for(post.path), title=post.title)
+          != image_tag('/images/' + firstPhoto, { class: 'img-fluid' })
+      .col-9
+        h4
+          a(href=url_for(post.path), rel='bookmark')= post.title
+        span.text-muted=full_date(post.date, 'll')
+        span.text-muted.ml-2.mr-2 /
+        span.text-muted= readingTime(post.content)
+        br
+
+        if post.categories.length
+          span.text-muted
+            | #{__('categories')}:
+            != list_categories(post.categories, { show_count: false, class: 'ml-1 ', style: ''})
+
+        if post.categories.length && post.tags.length
+          span.mr-2 ,
+
+        if post.tags.length
+          span.text-muted
+            | #{__('tags')}:
+            != list_tags(post.tags, { show_count: false, class: 'ml-1 ', style: ''})
+
+        - let texto = strip_html(post.content)
+        p.mt-2= truncate(texto, { length: 100, separator: ' '})

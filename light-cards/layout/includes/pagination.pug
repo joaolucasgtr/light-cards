@@ -1,0 +1,24 @@
+if page.prev_link || page.next_link
+  .row
+    .col-12.text-center
+      if page.prev
+        a.btn.btn-outline-primary.float-left(href=url_for(page.prev_link || ""))
+          i.fa.fa-chevron-left.mr-2
+          | #{__('previous')}
+      if page.next
+        a.btn.btn-outline-primary.float-right(href=url_for(page.next_link))
+          | #{__('next')}
+          i.fa.fa-chevron-right.ml-2
+else
+  .row
+    .col-12.text-center
+      if page.prev
+        a.btn.btn-outline-primary.float-left(href=url_for(page.prev.path))
+          i.fa.fa-chevron-left.mr-2
+          | #{__('previous')}
+      if page.updated && is_post()
+        span.mt-2= `Última atualização realizada em: ${full_date(page.updated, config.date_format)}`
+      if page.next
+        a.btn.btn-outline-primary.float-right(href=url_for(page.next.path))
+          | #{__('next')}
+          i.fa.fa-chevron-right.ml-2
