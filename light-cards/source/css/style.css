@@ -9,7 +9,7 @@ img {
 
 blockquote {
   font-style: italic;
-  border-left: 4px solid grey;
+  border-left: 4px solid #cecece;
   padding: 1em;
   background-color: #f8f8f8;
   color: #6c757d;
@@ -40,4 +40,8 @@ blockquote p {
 .social-avatar {
   border: 3px solid white;
   width: 140px;
+}
+
+div.shadow:hover {
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.3)!important;
 }
